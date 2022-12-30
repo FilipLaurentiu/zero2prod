@@ -35,6 +35,7 @@ until psql -h "localhost" -U "${DB_USER}" -p "${DB_PORT}" -d "postgres" -c '\q';
   echo >&2 "Postgres is still unavailable - sleeping"
   sleep 1
 done
+cd ../
 echo >&2 "Postgres is up and running on port ${DB_PORT} - running migrations now!"
 DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@localhost:${DB_PORT}/${DB_NAME}
 export DATABASE_URL
